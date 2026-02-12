@@ -14,6 +14,8 @@ html {
   --max-width: 900px;
   --radius: 14px;
   --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --shadow-primary: 0 2px 5px rgb(58, 58, 58), 0 2px 5px rgba(58, 58, 58);
 }
 h2 {
   letter-spacing: -0.01em;
@@ -23,6 +25,12 @@ p {
   font-size: 0.95rem;
 }
 
+a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
 /* DARK MODE */
 [data-theme="dark"] {
   --bg: #0b0b0b;
@@ -30,6 +38,8 @@ p {
   --text: #ffffff;
   --muted: #a0a0a0;
   --border: #222;
+
+  --shadow-primary: 0 2px 5px rgb(143, 143, 143), 0 2px 5px rgb(143, 143, 143);
 }
 
 * {
@@ -187,6 +197,24 @@ body {
 
 .skills li:hover {
   transform: translateY(-4px);
+}
+
+.pro-button {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  padding: 0.6rem 1.2rem;
+  padding-top: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: background var(--transition), transform var(--transition);
+  cursor: pointer;
+}
+
+.pro-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-primary);
 }
 
 /* PROJECT */
