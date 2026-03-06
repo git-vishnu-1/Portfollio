@@ -8,6 +8,8 @@ if (currentTheme) {
   document.documentElement.setAttribute("data-theme", "dark");
 }
 
+toggle.textContent = document.documentElement.getAttribute("data-theme") === "dark" ? "☀️" : "🌙";
+
 toggle.addEventListener("click", () => {
   const theme =
     document.documentElement.getAttribute("data-theme") === "dark"
@@ -40,3 +42,31 @@ window.addEventListener("scroll", () => {
   document.querySelector(".nav")
     .classList.toggle("scrolled", window.scrollY > 20);
 });
+
+// CUSTOM CURSOR
+const cursor = document.querySelector(".custom-cursor");
+
+if (cursor) {
+  document.addEventListener("mousemove", (e) => {
+    // Show cursor on first move
+    if (!cursor.classList.contains("visible")) {
+      cursor.classList.add("visible");
+    }
+    // Update position smoothly
+    cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+  });
+
+  // Add hover effect for interactive elements
+  const interactables = document.querySelectorAll(
+    "a, button, .skills li, .project"
+  );
+  
+  interactables.forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      cursor.classList.add("hover");
+    });
+    el.addEventListener("mouseleave", () => {
+      cursor.classList.remove("hover");
+    });
+  });
+}
